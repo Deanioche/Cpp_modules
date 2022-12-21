@@ -13,4 +13,3 @@ int main()
 	// new[] 는 delete[]로 할당 해제
 	delete[] horde;
 }
-ADD 323 123
