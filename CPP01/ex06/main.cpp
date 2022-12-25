@@ -1,13 +1,13 @@
 #include "Harl.h"
 #include "iostream"
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	if (argc != 2)
+	if (ac != 2)
 	{
-		std::cout << "error : check arguments" << std::endl;
+		std::cout << "error : Argument is required" << std::endl;
 		return (1);
 	}
 	Harl harl;
-	harl.harlFilter(argv[1]);
+	harl.harlFilter(av[1]);
 }

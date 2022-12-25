@@ -1,7 +1,7 @@
 #include "Harl.h"
 #include <iostream>
 
-Harl::Harl()
+Harl::Harl(void)
 {
     harl_complains[0] = &Harl::debug;
     harl_complains[1] = &Harl::info;
@@ -49,7 +49,5 @@ void Harl::complain(std::string level)
         }
     }
 }
-
-Harl::Harl(void) {}
 
 Harl::~Harl(void) {}

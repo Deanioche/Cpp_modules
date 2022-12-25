@@ -1,6 +1,6 @@
 #include "Zombie.h"
 
-int main()
+int main(void)
 {	
 	// 함수가 실행되면, Zombie 클래스를 스택 메모리에 생성후 출력한 뒤, 함수가 종료되면 함께 메모리상에서 소멸된다.
 	randomChump(std::string("Unknown_body"));

@@ -1,7 +1,7 @@
 #include "Harl.h"
 #include <iostream>
 
-Harl::Harl()
+Harl::Harl(void)
 {
 	harl_complains[0] = &Harl::debug;
 	harl_complains[1] = &Harl::info;
@@ -82,10 +82,6 @@ void Harl::harlFilter(const std::string& level)
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
-
-
 }
-
-Harl::Harl(void) {}
 
 Harl::~Harl(void) {}

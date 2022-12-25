@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 
-int main()
+int main(void)
 {
 	// PTR과 REF 둘 다 같은 주소(stringHI)를 가진다.
 	// 둘의 차이는 포인터 변수는 변수 크기 만큼의 메모리를 사용하고,

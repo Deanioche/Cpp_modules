@@ -1,4 +1,4 @@
-NAME 		= weapon
+NAME 		= violence
 
 CC			= c++
 CPPFLAGS	= -std=c++98 -Wall -Wextra -Werror

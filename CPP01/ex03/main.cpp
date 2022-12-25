@@ -2,7 +2,7 @@
 #include "HumanB.h"
 #include "Weapon.h"
 
-int main()
+int main(void)
 {
 	{
 		Weapon club = Weapon("crude spiked club");

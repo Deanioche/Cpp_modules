@@ -1,6 +1,6 @@
 #include "Zombie.h"
 
-int main()
+int main(void)
 {
 	int N = 8;
 
