@@ -3,29 +3,30 @@ NAME 		= harlFilter
 CC			= c++
 CPPFLAGS	= -std=c++98 -Wall -Wextra -Werror
 
-SRCS		= main.cpp\
-				Harl.cpp
+SRCS		= \
+			main.cpp \
+			Harl.cpp
 
-ODIR		= tmp
-OBJS		= $(SRCS:%.cpp=$(ODIR)/%.o)
-
-.PHONY:		all clean fclean re
+OBJS_DIR	= objs
+OBJS		= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 $(NAME): $(OBJS)
-	$(CC) $(CPPFLAGS) $(OBJS) -o $@
+	$(CC) $(FLAGS) $(OBJS) -o $@
 
-$(ODIR)/%.o: %.cpp | $(ODIR)
-	$(CC) $(CPPFLAGS) -c $< -o $@
+$(OBJS_DIR)/%.o: %.cpp | $(OBJS_DIR)
+	$(CC) $(FLAGS) -c $< -o $@
 
-$(ODIR):
-	mkdir -p $@
+$(OBJS_DIR):
+	mkdir $@
 
 all: $(NAME)
 
 clean:
-	rm -r -f $(ODIR)
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY:	all clean fclean re

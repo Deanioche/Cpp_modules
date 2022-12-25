@@ -1,7 +1,7 @@
 NAME 		= horde
 
 CC			= c++
-CPPFLAGS	= -std=c++98 -Wall -Wextra -Werror -pedantic
+CPPFLAGS	= -std=c++98 -Wall -Wextra -Werror
 
 SRCS		= \
 			main.cpp \

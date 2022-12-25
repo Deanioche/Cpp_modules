@@ -1,7 +1,7 @@
 NAME 		= weapon
 
 CC			= c++
-CPPFLAGS	= -std=c++98 -Wall -Wextra -Werror -padentic
+CPPFLAGS	= -std=c++98 -Wall -Wextra -Werror
 
 SRCS		= \
 			main.cpp \

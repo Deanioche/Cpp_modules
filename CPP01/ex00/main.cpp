@@ -15,6 +15,6 @@ int main()
 	// 스택 메모리에 생성
 	// 프로그램이 동작하는 동안 사용
 	Zombie push_swap_zomb(std::string("Push_swap"));
+	push_swap_zomb.~Zombie();
 	push_swap_zomb.announce();
-
 }

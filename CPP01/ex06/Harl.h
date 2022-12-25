@@ -1,5 +1,5 @@
-#ifndef CPP01_HARL_H
-#define CPP01_HARL_H
+#ifndef HARL_H
+#define HARL_H
 #include <string>
 
 class Harl
@@ -12,9 +12,11 @@ private:
 	void warning( void );
 	void error( void );
 public:
-	Harl();
 	void complain( std::string level );
 	void harlFilter(const std::string& level);
+	
+	Harl( void );
+	~Harl( void );
 };
 
-#endif //CPP01_HARL_H
+#endif

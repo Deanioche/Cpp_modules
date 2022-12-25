@@ -1,58 +1,87 @@
 #include <iostream>
+// fstream은 ifstream, ofstream을 둘다 포함한다.
 #include <fstream>
 #include <string>
 
-void strReplace(const std::string& s1, const std::string& s2, std::string& line)
+void str_repl(std::string &line, std::string before, std::string after)
 {
-	size_t pos;
-
-	(void)s2;
-	while (( pos = line.find(s1) ) < line.length())
-	{
-		line.erase(pos, s1.length());
-		line.insert(pos, s2);
-	}
+    std::size_t pos;
+    // find 함수가 아무것도 못찾았을 때 npos 반환
+    // npos(no-postion)는 size_t가 가질 수 있는 가장 큰 값.
+    while ((pos = line.find(before)) != std::string::npos)
+    {
+        line.erase(pos, before.length());
+        line.insert(pos, after);
+    }
 }
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	if(argc != 4)
-	{
-		std::cout << "error: " << "wrong number of arguments" << std::endl;
-		return (-1);
-	}
-	std::ifstream fin;
-	std::ofstream fout;
 
-	fin.open(argv[1], std::ios::in);
-	if(!fin.is_open())
-	{
-		std::cout << "error: " << "can't open " << argv[1] << std::endl;
-		return (-1);
-	}
+    if (ac != 4)
+    {
+        std::cout << "error : check arguments [ ./sed filename s1 s2 ]" << std::endl;
+        return (1);
+    }
 
-	std::string rep_file(argv[1]);
-	rep_file.append(".replace");
-	fout.open(rep_file, std::ios::out | std::ios::trunc);
-	if(!fin.is_open())
-	{
-		std::cout << "error: " << "can't open or create " << rep_file << std::endl;
-		return (-1);
-	}
-	std::string line;
-	std::getline(fin, line);
-	if (fin.eof() && line.empty())
-	{
-		std::cout << "error: " << argv[1] << " is empty" << std::endl;
-		return (-1);
-	}
-	do
-	{
-		strReplace(argv[2], argv[3], line);
-		fout << line;
-		if (!fin.eof())
-			fout << std::endl;
-	} while (std::getline(fin, line));
-	fout.close();
-	fin.close();
+    std::string s1(av[2]);
+    std::string s2(av[3]);
+    if (s1.empty() || s2.empty() || !s1.compare(s2))
+    {
+        std::cout << "error : argument s1, s2 cannot be same or empty. [ ./sed filename s1 s2 ]" << std::endl;
+        return (1);
+    }
+
+    // 파일 열기
+    // std::ios::in 은 디폴트값이므로 없어도 됨.
+    std::ifstream fin(av[1], std::ios::in);
+
+    // 스트림이 파일을 가졌는지 체크
+    // 가졌으면 true 반환
+    if (!fin.good() || !fin.is_open())
+    {
+        std::cout << "error : failed to open " << av[1] << std::endl;
+        return (1);
+    }
+
+    std::string new_filename(av[1]);
+    new_filename.append(".replace");
+
+    // fout은 파일 읽기에 실패했을때 failbit or badfit가 1이 되고, false를 반환한다.
+    // fout.is_open()은 스트림이 성공적으로 파일을 획득했으면 1 반환.
+    // std::ios::trunc | std::ios::app 등 동시에 있을 수 없는 옵션이 오면 에러.
+    // out과 trunc는 ofstream의 default이다.
+    std::ofstream fout(new_filename, std::ios::out | std::ios::trunc);
+    if (!fout.good() || !fout.is_open())
+    {
+        std::cout << "error : failed to open or create " << new_filename << std::endl;
+        return (1);
+    }
+
+    std::string line;
+    /**
+     * getline이 실패하는 경우
+     * - eofbit : 작업 중 문자들의 끝에 도달하였을 때
+     * - failbit : 끝에 바로 도달한 경우
+     * - errbit : 그 외 오류
+     */
+    if (!std::getline(fin, line))
+    {
+        std::cout << "error : failed to read data from " << av[1] << std::endl;
+        return (1);
+    }
+
+
+    do
+    {
+        str_repl(line, s1, s2);
+        fout << line;
+
+        // getline은 개행문자를 받지 않으므로
+        // 파일에 읽을게 더 있다면 수동으로 개행을 넣어 다음줄에 쓰게 한다.
+        if (!fin.eof())
+            fout << std::endl;
+    }
+    while (std::getline(fin, line));
+    return (0);
 }

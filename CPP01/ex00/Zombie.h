@@ -1,14 +1,14 @@
 #ifndef ZOMBIE_H
 #define ZOMBIE_H
-#include <string>
 #include <iostream>
+#include <string>
 
 class Zombie
 {
 private:
 	std::string zombie_name;
 public:
-	Zombie(const std::string& name);
+	Zombie(const std::string name);
 	~Zombie();
 	void announce( void ) const;
 };

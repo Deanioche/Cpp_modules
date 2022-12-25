@@ -1,8 +1,7 @@
 #include "Zombie.h"
 
 
-Zombie::Zombie() : _name("_defaultName")
-{}
+Zombie::Zombie() : _name("_defaultName") {}
 
 Zombie::~Zombie()
 {

@@ -1,6 +1,6 @@
 #include "HumanB.h"
 
-HumanB::HumanB(const std::string& _name) : name(_name)
+HumanB::HumanB(const std::string _name) : name(_name)
 {
 	this->weapon = nullptr;
 }
@@ -10,7 +10,7 @@ void HumanB::setWeapon(Weapon& ptrWeapon)
 	this->weapon = &ptrWeapon; 
 }
 
-void HumanB::attack() const
+void HumanB::attack(void) const
 {
 	if (weapon == nullptr)
 		return ;
