@@ -6,7 +6,7 @@ Fixed::Fixed(void) : _fixed_point(0)
 	std::cout << "\033[0;33mDefault Constructor called of Fixed\033[0m" << std::endl;
 }
 
-Fixed::Fixed(Fixed &copy)
+Fixed::Fixed(const Fixed &copy)
 {
 	std::cout << "\033[0;33mCopy Constructor called of Fixed\033[0m" << std::endl;
 	*this = copy;
@@ -20,7 +20,7 @@ Fixed::~Fixed(void)
 
 
 // Operators
-Fixed & Fixed::operator=(Fixed &assign)
+Fixed & Fixed::operator=(const Fixed &assign)
 {
 	std::cout << "\033[0;32mCopy assignment operator called.\033[0m" << std::endl;
 	if (this != &assign)

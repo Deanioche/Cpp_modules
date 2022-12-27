@@ -1,21 +1,20 @@
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef FIXED_00_HPP
+# define FIXED_00_HPP
 
 # include <iostream>
-# include <string>
 
 class Fixed
 {
 	public:
 		// Constructors
 		Fixed(void);
-		Fixed(Fixed &copy);
+		Fixed(const Fixed &copy);
 		
 		// Destructorß
 		~Fixed(void);
 		
 		// Operators
-		Fixed & operator=(Fixed &assign);
+		Fixed & operator=(const Fixed &assign);
 		
 		// Getters / Setters
 		int getRawBits(void) const;
