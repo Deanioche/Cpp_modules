@@ -71,7 +71,6 @@ int main(int ac, char **av)
         return (1);
     }
 
-
     do
     {
         str_repl(line, s1, s2);
@@ -83,5 +82,8 @@ int main(int ac, char **av)
             fout << std::endl;
     }
     while (std::getline(fin, line));
+
+    fin.close();
+    fout.close();
     return (0);
 }
