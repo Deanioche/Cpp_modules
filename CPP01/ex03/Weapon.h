@@ -8,7 +8,8 @@ private:
 	std::string type_name;
 public:
 	Weapon(const std::string type);
-	const std::string getType(void) const;
+	~Weapon(void);
+	const std::string& getType(void) const;
 	void setType(const std::string type);
 };
 

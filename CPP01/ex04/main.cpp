@@ -80,7 +80,6 @@ int main(int ac, char **av)
         // 파일에 읽을게 더 있다면 수동으로 개행을 넣어 다음줄에 쓰게 한다.
         if (!fin.eof())
             fout << std::endl;
-        std::cout << "fin.fail() : " << fin.fail() << "\nfin.eof() : " << fin.eof() << "\nfin.bad() : " << fin.bad() << "\nfin.good() : " << fin.good() << "\nfin.is_open() : " << fin.is_open() << "\n\n";
     }
     while (std::getline(fin, line));
 

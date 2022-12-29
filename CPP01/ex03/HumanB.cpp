@@ -1,9 +1,9 @@
 #include "HumanB.h"
+#include <iostream>
 
-HumanB::HumanB(const std::string name) : human_name(name)
-{
-	this->human_weapon = NULL;
-}
+HumanB::HumanB(const std::string name) : human_name(name), human_weapon(NULL) {}
+
+HumanB::~HumanB(void){};
 
 void HumanB::setWeapon(Weapon& ptrWeapon) 
 { 
