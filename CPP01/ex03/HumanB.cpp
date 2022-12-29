@@ -1,18 +1,18 @@
 #include "HumanB.h"
 
-HumanB::HumanB(const std::string _name) : name(_name)
+HumanB::HumanB(const std::string name) : human_name(name)
 {
-	this->weapon = nullptr;
+	this->human_weapon = NULL;
 }
 
 void HumanB::setWeapon(Weapon& ptrWeapon) 
 { 
-	this->weapon = &ptrWeapon; 
+	this->human_weapon = &ptrWeapon;
 }
 
 void HumanB::attack(void) const
 {
-	if (weapon == nullptr)
+	if (human_weapon == NULL)
 		return ;
-	std::cout << name << " attacks with their " << weapon->getType() << std::endl;
+	std::cout << this->human_name << " attacks with their " << this->human_weapon->getType() << std::endl;
 }

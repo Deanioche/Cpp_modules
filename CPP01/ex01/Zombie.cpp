@@ -1,16 +1,18 @@
 #include "Zombie.h"
 
-
-Zombie::Zombie(void) : _name("_defaultName") {}
+Zombie::Zombie(void) : zombie_name("_defaultName") {}
 
 Zombie::~Zombie(void)
 {
-	std::cout << "[Destructor] destruction of " << _name << std::endl;
+	std::cout << "[Destructor] destruction of " << this->zombie_name << std::endl;
 }
 
-void Zombie::setName(std::string &name) {_name = name;}
+void Zombie::setName(std::string name) 
+{
+	this->zombie_name = name;
+}
 
 void Zombie::announce(void) const
 {
-	std::cout << _name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->zombie_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
