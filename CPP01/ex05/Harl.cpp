@@ -2,10 +2,10 @@
 
 Harl::Harl(void)
 {
-    harl_complains[0] = &Harl::debug;
-    harl_complains[1] = &Harl::info;
-    harl_complains[2] = &Harl::warning;
-    harl_complains[3] = &Harl::error;
+    funPtr[0] = &Harl::debug;
+    funPtr[1] = &Harl::info;
+    funPtr[2] = &Harl::warning;
+    funPtr[3] = &Harl::error;
     levels[0] = "DEBUG";
     levels[1] = "INFO";
     levels[2] = "WARNING";
@@ -39,14 +39,15 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-    for (int i = 0; i < 4; i++)
-    {
-        if (level == levels[i])
-        {
-            (this->*harl_complains[i])();
-            break;
-        }
-    }
+	int lv = (level == "DEBUG") * 1 \
+				+ (level == "INFO") * 2 \
+				+ (level == "WARNING") * 3 \
+				+ (level == "ERROR") * 4;
+	if (lv == 0) {
+		std::cout << "Error: invalid complain\n";
+		return ;
+	}
+	(this->*funPtr[lv - 1])();
 }
 
 Harl::~Harl(void) {}

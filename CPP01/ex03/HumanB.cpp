@@ -1,18 +1,18 @@
 #include "HumanB.h"
 #include <iostream>
 
-HumanB::HumanB(const std::string name) : human_name(name), human_weapon(NULL) {}
+HumanB::HumanB(const std::string name) : humanName(name), humanWeapon(NULL) {}
 
 HumanB::~HumanB(void){};
 
 void HumanB::setWeapon(Weapon& ptrWeapon) 
 { 
-	this->human_weapon = &ptrWeapon;
+	this->humanWeapon = &ptrWeapon;
 }
 
 void HumanB::attack(void) const
 {
-	if (human_weapon == NULL)
+	if (humanWeapon == NULL)
 		return ;
-	std::cout << this->human_name << " attacks with their " << this->human_weapon->getType() << std::endl;
+	std::cout << this->humanName << " attacks with their " << this->humanWeapon->getType() << std::endl;
 }

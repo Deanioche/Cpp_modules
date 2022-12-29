@@ -5,8 +5,8 @@
 class HumanB
 {
 private:
-	std::string human_name;
-	Weapon *human_weapon;
+	std::string humanName;
+	Weapon *humanWeapon;
 
 public:
 	HumanB(const std::string name);

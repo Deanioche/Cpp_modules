@@ -1,7 +1,7 @@
 NAME 		= harlFilter
 
 CC			= c++
-FLAGS	= -std=c++98 -Wall -Wextra -Werror
+FLAGS		= -std=c++98 -Wall -Wextra -Werror
 
 SRCS		= \
 			main.cpp \

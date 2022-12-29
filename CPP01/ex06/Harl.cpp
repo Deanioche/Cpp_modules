@@ -1,17 +1,18 @@
 #include "Harl.h"
-#include <iostream>
 
 Harl::Harl(void)
 {
-	harl_complains[0] = &Harl::debug;
-	harl_complains[1] = &Harl::info;
-	harl_complains[2] = &Harl::warning;
-	harl_complains[3] = &Harl::error;
+	funPtr[0] = &Harl::debug;
+	funPtr[1] = &Harl::info;
+	funPtr[2] = &Harl::warning;
+	funPtr[3] = &Harl::error;
 	levels[0] = "DEBUG";
 	levels[1] = "INFO";
 	levels[2] = "WARNING";
 	levels[3] = "ERROR";
 }
+
+Harl::~Harl(void) {}
 
 void Harl::debug(void)
 {
@@ -43,45 +44,38 @@ void Harl::complain(std::string level)
 	{
 		if (level == levels[i])
 		{
-			(this->*harl_complains[i])();
+			(this->*funPtr[i])();
 			break;
 		}
 	}
 }
 
-void Harl::harlFilter(const std::string& level)
+void Harl::harlFilter(const std::string level)
 {
-	int index = -1;
-	for (int i = 0; i < 4; ++i)
+	int lv = (level == "DEBUG") * 1 \
+				+ (level == "INFO") * 2 \
+				+ (level == "WARNING") * 3 \
+				+ (level == "ERROR") * 4;
+	switch (lv)
 	{
-		if (level == levels[i])
-		{
-			index = i;
-			break;
-		}
-	}
-	switch (index)
-	{
-		case 0:
-			std::cout << "[ " << levels[0] << " ]" << std::endl;
-			(this->*harl_complains[0])();
-			std::cout << std::endl;
 		case 1:
-			std::cout << "[ " << levels[1] << " ]" << std::endl;
-			(this->*harl_complains[1])();
+			std::cout << "[ " << levels[0] << " ]" << std::endl;
+			(this->*funPtr[0])();
 			std::cout << std::endl;
 		case 2:
-			std::cout << "[ " << levels[2] << " ]" << std::endl;
-			(this->*harl_complains[2])();
+			std::cout << "[ " << levels[1] << " ]" << std::endl;
+			(this->*funPtr[1])();
 			std::cout << std::endl;
 		case 3:
+			std::cout << "[ " << levels[2] << " ]" << std::endl;
+			(this->*funPtr[2])();
+			std::cout << std::endl;
+		case 4:
 			std::cout << "[ " << levels[3] << " ]" << std::endl;
-			(this->*harl_complains[3])();
+			(this->*funPtr[3])();
 			std::cout << std::endl;
 			break;
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }
-
-Harl::~Harl(void) {}

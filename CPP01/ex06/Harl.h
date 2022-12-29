@@ -1,11 +1,11 @@
 #ifndef HARL_H
 #define HARL_H
-#include <string>
+#include <iostream>
 
 class Harl
 {
 private:
-	void (Harl::*harl_complains[4])();
+	void (Harl::*funPtr[4])();
 	std::string levels[4];
 	void debug(void);
 	void info(void);
@@ -13,9 +13,9 @@ private:
 	void error(void);
 public:
 	void complain(const std::string level);
-	void harlFilter(const std::string& level);
-	Harl( void );
-	~Harl( void );
+	void harlFilter(const std::string level);
+	Harl(void);
+	~Harl(void);
 };
 
 #endif
