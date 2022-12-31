@@ -8,66 +8,54 @@ class Fixed
 {
 	public:
 		// Constructors
-		Fixed( void );
-		Fixed( const Fixed &copy );
-		Fixed( int const n );
-		Fixed( float const f );
+		Fixed(void);
+		Fixed(const Fixed &copy);
+		Fixed(int const n);
+		Fixed(float const f);
 		
 		// Destructor
-		~Fixed( void );
+		~Fixed(void);
 		
 		// Operators
 
-		/*
-		 * Wy const? because we don't want to modify
-		 * the object itself (only the value)
-		 */
-		bool operator>( const Fixed &f ) const;
-		bool operator<( const Fixed &f ) const;
-		bool operator>=( const Fixed &f ) const;
-		bool operator<=( const Fixed &f ) const;
-		bool operator==( const Fixed &f ) const;
-		bool operator!=( const Fixed &f ) const;
+		bool operator>(const Fixed &f) const;
+		bool operator<(const Fixed &f) const;
+		bool operator>=(const Fixed &f) const;
+		bool operator<=(const Fixed &f) const;
+		bool operator==(const Fixed &f) const;
+		bool operator!=(const Fixed &f) const;
 
-		Fixed operator+( const Fixed &f ) const;
-		Fixed operator-( const Fixed &f ) const;
-		Fixed operator*( const Fixed &f ) const;
-		Fixed operator/( const Fixed &f ) const;
+		Fixed operator+(const Fixed &f) const;
+		Fixed operator-(const Fixed &f) const;
+		Fixed operator*(const Fixed &f) const;
+		Fixed operator/(const Fixed &f) const;
 
-		Fixed & operator++( void ); // 전위연산
-		Fixed 	operator++( int ); // 후위연산
-		Fixed & operator--( void );
-		Fixed 	operator--( int );
+		Fixed & operator++(void);
+		Fixed 	operator++(int);
+		Fixed & operator--(void);
+		Fixed 	operator--(int);
 
-		Fixed & operator=( const Fixed &assign );
+		Fixed & operator=(const Fixed &assign);
 		
 		// Getters / Setters
-		int 	getRawBits( void ) const;
-		void	setRawBits( int const rawBits );
+		int 	getRawBits(void) const;
+		void	setRawBits(int const rawBits);
 
 		// Public Functions
-		int		toInt( void ) const;
-		float	toFloat( void ) const;
+		int		toInt(void) const;
+		float	toFloat(void) const;
 
-
-		/*
-		 * why &? because we want to modify the object (static member)
-		 * and not a copy of it
-		 */
-		static  Fixed &min(Fixed &a, Fixed &b);
-		static  Fixed &max(Fixed &a, Fixed &b);
-		static  Fixed const &min(Fixed const &a, Fixed const &b);
-		static  Fixed const &max(Fixed const &a, Fixed const &b);
+		static Fixed &min(Fixed &a, Fixed &b);
+		static Fixed &max(Fixed &a, Fixed &b);
+		static Fixed const &min(Fixed const &a, Fixed const &b);
+		static Fixed const &max(Fixed const &a, Fixed const &b);
 		
 	private:
 		int					_fixed_point;
 		static const int 	_fractionalBits = 8;
 		
 };
-
-// Operator <<
-// orthdox 괜찮은가?
-// stream << Fixed클래스 연산자 오버로딩                                
-std::ostream & operator<<( std::ostream& o, const Fixed& f );
+                            
+std::ostream & operator<<(std::ostream& o, const Fixed& f);
 
 #endif

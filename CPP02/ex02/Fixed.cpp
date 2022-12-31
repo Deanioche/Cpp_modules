@@ -13,7 +13,6 @@ Fixed::Fixed( int const n ) : _fixed_point( n << _fractionalBits )
 	return ;
 }
 
-// roundf는 파라미터롤 들어오는 float 값을 가장 가까운 int로 변환
 Fixed::Fixed( float const f ) : _fixed_point( roundf(f * (1 << _fractionalBits)) )
 {
 	return ;
@@ -134,10 +133,6 @@ Fixed const &Fixed::max( Fixed const &a, Fixed const &b ) {
 	return (a > b) ? a : b;
 }
 
-
-
-
-
 // Getters / Setters
 int Fixed::getRawBits(void) const 
 {
@@ -154,19 +149,9 @@ void Fixed::setRawBits(int const rawBits)
 // Public Functions
 int Fixed::toInt(void) const
 {
-	// Fixed::_factioncalBits는 static이므로 인스턴스에서 호출하는게 아닌, 클래스에서 바로 호출.
 	return (this->_fixed_point >> Fixed::_fractionalBits);	
 }
 
-/**
- * static_cast<type>
-   compile 타임에 형변환에 대한 타입 오류를 잡아줍니다.
-
-	실수와 정수, 열거형과 정수형, 실수와 실수 사이의 변환 등을 허용한다.
-	arr -> pointer로 변경 가능합니다.
-
-	function -> function pointer로 변경 가능합니다.
-*/
 float Fixed::toFloat(void) const
 {
 	return (static_cast<float>(_fixed_point) / (1 << Fixed::_fractionalBits));

@@ -8,24 +8,24 @@ class Fixed
 {
 	public:
 		// Constructors
-		Fixed( void );
-		Fixed( const Fixed &copy );
-		Fixed( int const n );
-		Fixed( float const f );
+		Fixed(void);
+		Fixed(Fixed const &copy);
+		Fixed(int const n);
+		Fixed(float const f);
 		
 		// Destructor
-		~Fixed( void );
+		~Fixed(void);
 		
 		// Operator =
-		Fixed & operator=( const Fixed &assign );
+		Fixed & operator=(Fixed const &assign);
 		
 		// Getters / Setters
-		int 	getRawBits( void ) const;
-		void	setRawBits( int const rawBits );
+		int 	getRawBits(void) const;
+		void	setRawBits(int const raw);
 
 		// Public Functions
-		int		toInt( void ) const;
-		float	toFloat( void ) const;
+		int		toInt(void) const;
+		float	toFloat(void) const;
 		
 	private:
 		int					_fixed_point;
@@ -33,9 +33,6 @@ class Fixed
 		
 };
 
-// Operator <<
-// orthdox 괜찮은가?
-// stream << Fixed클래스 연산자 오버로딩                                
-std::ostream & operator<<( std::ostream& o, const Fixed& f );
+std::ostream & operator<<(std::ostream& o, Fixed const& f);
 
 #endif

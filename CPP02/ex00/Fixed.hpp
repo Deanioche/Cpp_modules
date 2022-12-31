@@ -8,21 +8,21 @@ class Fixed
 	public:
 		// Constructors
 		Fixed(void);
-		Fixed(const Fixed &copy);
+		Fixed(Fixed const &copy);
 		
-		// Destructorß
+		// Destructor
 		~Fixed(void);
 		
 		// Operators
-		Fixed & operator=(const Fixed &assign);
+		Fixed & operator=(Fixed const &assign);
 		
 		// Getters / Setters
 		int getRawBits(void) const;
+		void setRawBits(int const raw);
 		
 	private:
 		int					_fixed_point;
 		static const int 	_fractionalBits = 8;
-		
 };
 
 #endif
