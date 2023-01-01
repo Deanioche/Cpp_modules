@@ -44,7 +44,7 @@ void Harl::complain(std::string level)
 				+ (level == "WARNING") * 3 \
 				+ (level == "ERROR") * 4;
 	if (lv == 0) {
-		std::cout << "Error: invalid complain\n";
+		std::cout << "Error: invalid complain" << std::endl;
 		return ;
 	}
 	(this->*funPtr[lv - 1])();

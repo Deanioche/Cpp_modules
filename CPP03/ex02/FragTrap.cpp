@@ -2,22 +2,22 @@
 
 FragTrap::FragTrap(void) : ClapTrap("Frag_default", 100, 100, 30)
 {
-	std::cout << "[FragTrap] " << this->_name << " : Default constructor called\n";
+	std::cout << "[FragTrap] " << this->_name << " : Default constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)
 {
-	std::cout << "[FragTrap] " << this->_name << " : Constructor with name called\n";
+	std::cout << "[FragTrap] " << this->_name << " : Constructor with name called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& fragTrap) : ClapTrap(fragTrap)
 {
-	std::cout << "[FragTrap] " << this->_name << " : Copy constructor called\n";
+	std::cout << "[FragTrap] " << this->_name << " : Copy constructor called" << std::endl;
 }
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << "[FragTrap] " << this->_name << " : Destructor called\n";
+	std::cout << "[FragTrap] " << this->_name << " : Destructor called" << std::endl;
 }
 
 const FragTrap& FragTrap::operator=(const FragTrap& fragTrap)
@@ -35,21 +35,21 @@ const FragTrap& FragTrap::operator=(const FragTrap& fragTrap)
 void FragTrap::attack(const std::string& target)
 {
 	if (_hitPoints == 0)
-		std::cout << "[FragTrap] " << this->_name << " can't attack : discharged\n";
+		std::cout << "[FragTrap] " << this->_name << " can't attack : has 0 hit point" << std::endl;
 	else if (_energyPoints == 0)
-		std::cout << "[FragTrap] " << this->_name << " can't attack : lack of energy\n";
+		std::cout << "[FragTrap] " << this->_name << " can't attack : lack of energy" << std::endl;
 	else {
 		_energyPoints--;
-		std::cout << "[FragTrap] " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!\n";
+		std::cout << "[FragTrap] " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 	}
 }
 
 void FragTrap::highFivesGuys(void)
 {
 	if (_hitPoints == 0)
-		std::cout << "[FragTrap] " << this->_name << " can't request high fives : discharged\n";
+		std::cout << "[FragTrap] " << this->_name << " can't request high fives : has 0 hit point" << std::endl;
 	else if (_energyPoints == 0)
-		std::cout << "[FragTrap] " << this->_name << " can't request high fives : lack of energy\n";
+		std::cout << "[FragTrap] " << this->_name << " can't request high fives : lack of energy" << std::endl;
 	else
-		std::cout << "[FragTrap] " << this->_name << " : Let's high fives guys !\n";
+		std::cout << "[FragTrap] " << this->_name << " : high five!" << std::endl;
 }

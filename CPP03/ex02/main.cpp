@@ -1,36 +1,36 @@
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap claptrap("A");
-	ScavTrap scavtrap("B");
+	ClapTrap claptrap("Clap");
+	ScavTrap scavtrap("Scav");
+	FragTrap fragtrap("Frag");
 	std::cout << std::endl;
 
-	claptrap.attack("B");
-	scavtrap.takeDamage(0);
-	scavtrap.beRepaired(18);
+	fragtrap.attack("Scav");
+	claptrap.attack("Scav");
+	scavtrap.attack("Clap");
 	std::cout << std::endl;
 
-	scavtrap.attack("A");
-	claptrap.takeDamage(20);
-	scavtrap.attack("A");
-	claptrap.takeDamage(20);
-	scavtrap.attack("A");
-	claptrap.beRepaired(64);
+	fragtrap.attack("Scav");
+	fragtrap.attack("Scav");
+	fragtrap.attack("Scav");
+	fragtrap.attack("Scav");
 	std::cout << std::endl;
 
-	scavtrap.guardGate();
-	scavtrap.attack("A");
+	fragtrap.highFivesGuys();
 	std::cout << std::endl;
 
-	scavtrap.takeDamage(100);
-	scavtrap.beRepaired(200);
-	scavtrap.attack("B");
-	scavtrap.takeDamage(300);
-	scavtrap.takeDamage(1);
-	scavtrap.beRepaired(1);
-	std::cout << std::endl;
+	fragtrap.beRepaired(18);
 
+	fragtrap.takeDamage(50);
+
+	fragtrap.takeDamage(500);
+
+	fragtrap.beRepaired(20);
+	fragtrap.attack("Scav");
+
+	std::cout << std::endl;
 	return (0);
 }

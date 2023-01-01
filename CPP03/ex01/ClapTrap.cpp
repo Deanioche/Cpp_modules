@@ -12,7 +12,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 
 ClapTrap::ClapTrap(std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage) : _name(name), _hitPoints(hitPoints), _energyPoints(energyPoints), _attackDamage(attackDamage)
 {
-	std::cout << "[ClapTrap] " << this->_name << " :  Constructor with all attributes called\n";
+	std::cout << "[ClapTrap] " << this->_name << " :  Constructor with all attributes called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &claptrap)
@@ -69,7 +69,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_hitPoints == 0)
-		std::cout << "[ClapTrap] " << this->_name << " can't be reparied : has 0 hit point" << std::endl;
+		std::cout << "[ClapTrap] " << this->_name << " can't be repaired : has 0 hit point" << std::endl;
 	else if (_energyPoints == 0)
 	{
 		std::cout << "[ClapTrap] " << this->_name << " can't be repaired : lack of energy" << std::endl;
