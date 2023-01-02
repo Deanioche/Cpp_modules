@@ -2,22 +2,22 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap("Scav_default", 100, 50, 20)
 {
-	std::cout << "[ScavTrap] " << this->_name << " : Default constructor called"  << std::endl;
+	std::cout << "[ScavTrap] " << this->_name << " : Default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-	std::cout << "[ScavTrap] " << this->_name << " : Constructor with name called"  << std::endl;
+	std::cout << "[ScavTrap] " << this->_name << " : Constructor with name called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& scavtrap) : ClapTrap(scavtrap)
 {
-	std::cout << "[ScavTrap] " << this->_name << " : Copy constructor called"  << std::endl;
+	std::cout << "[ScavTrap] " << this->_name << " : Copy constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "[ScavTrap] " << this->_name << " : Destructor called"  << std::endl;
+	std::cout << "[ScavTrap] " << this->_name << " : Destructor called" << std::endl;
 }
 
 const ScavTrap& ScavTrap::operator=(const ScavTrap& scavTrap)
@@ -35,21 +35,21 @@ const ScavTrap& ScavTrap::operator=(const ScavTrap& scavTrap)
 void ScavTrap::attack(const std::string& target)
 {
 	if (this->_hitPoints == 0)
-		std::cout << "[ScavTrap] " << this->_name << " can't attack : has 0 hit point"  << std::endl;
+		std::cout << "[ScavTrap] " << this->_name << " can't attack : has 0 hit point" << std::endl;
 	else if (this->_energyPoints == 0)
-		std::cout << "[ScavTrap] " << this->_name << " can't attack : has 0 energy"  << std::endl;
+		std::cout << "[ScavTrap] " << this->_name << " can't attack : has 0 energy" << std::endl;
 	else {
 		this->_energyPoints--;
-		std::cout << "[ScavTrap] " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!"  << std::endl;
+		std::cout << "[ScavTrap] " << this->_name << " punched " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 	}
 }
 
 void ScavTrap::guardGate(void) const
 {
 	if (this->_hitPoints == 0)
-		std::cout << "[ScavTrap] " << this->_name << " can't be in Gate keeper mode : has 0 hit point"  << std::endl;
+		std::cout << "[ScavTrap] " << this->_name << " can't be in Gate keeper mode : has 0 hit point" << std::endl;
 	else if (this->_energyPoints == 0)
-		std::cout << "[ScavTrap] " << this->_name << " can't be in Gate keeper mode : has 0 energy"  << std::endl;
+		std::cout << "[ScavTrap] " << this->_name << " can't be in Gate keeper mode : has 0 energy" << std::endl;
 	else
-		std::cout << "[ScavTrap] " << this->_name << " : I'm now in Gate keeper mode"  << std::endl;
+		std::cout << "[ScavTrap] " << this->_name << " : I'm now in Gate keeper mode" << std::endl;
 }

@@ -17,6 +17,8 @@ ClapTrap::ClapTrap(std::string name, unsigned int hitPoints, unsigned int energy
 
 ClapTrap::ClapTrap(const ClapTrap &claptrap)
 {
+	if (this->_name.empty())
+		this->_name = "Clap_default";
 	std::cout << "[ClapTrap] " << this->_name << " : Copy constructor called" << std::endl;
 	(*this) = claptrap;
 }
@@ -28,6 +30,7 @@ ClapTrap::~ClapTrap(void)
 
 const ClapTrap &ClapTrap::operator=(const ClapTrap &claptrap)
 {
+	std::cout << "[ClapTrap] " << this->_name << " : Assignment Operator called" << std::endl;
 	if (this != &claptrap)
 	{
 		this->_name = claptrap._name;

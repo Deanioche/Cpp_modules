@@ -40,7 +40,7 @@ void FragTrap::attack(const std::string& target)
 		std::cout << "[FragTrap] " << this->_name << " can't attack : has 0 energy" << std::endl;
 	else {
 		this->_energyPoints--;
-		std::cout << "[FragTrap] " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+		std::cout << "[FragTrap] " << this->_name << " kicked " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 	}
 }
 
