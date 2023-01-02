@@ -1,4 +1,4 @@
-NAME 		= a.out
+NAME 		= ex00
 
 CC			= c++
 FLAGS		= -std=c++98 -Wall -Wextra -Werror

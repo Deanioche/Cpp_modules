@@ -37,7 +37,7 @@ const ClapTrap &ClapTrap::operator=(const ClapTrap &claptrap)
 void ClapTrap::attack(const std::string &target)
 {
 	if (_hitPoints == 0)
-		std::cout << "[ClapTrap] " << this->_name << " can't attack : no hit point" << std::endl;
+		std::cout << "[ClapTrap] " << this->_name << " can't attack : has 0 hit point" << std::endl;
 	else if (_energyPoints == 0)
 		std::cout << "[ClapTrap] " << this->_name << " can't attack : lack of energy" << std::endl;
 	else
@@ -50,7 +50,7 @@ void ClapTrap::attack(const std::string &target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_hitPoints == 0)
-		std::cout << "[ClapTrap] " << this->_name << " can't take damage : no hit point" << std::endl;
+		std::cout << "[ClapTrap] " << this->_name << " can't take damage : has 0 hit point" << std::endl;
 	else
 	{
 		if (_hitPoints < amount)
@@ -64,7 +64,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_hitPoints == 0)
-		std::cout << "[ClapTrap] " << this->_name << " can't be repaired : no hit point" << std::endl;
+		std::cout << "[ClapTrap] " << this->_name << " can't be repaired : has 0 hit point" << std::endl;
 	else if (_energyPoints == 0)
 	{
 		std::cout << "[ClapTrap] " << this->_name << " can't be repaired : lack of energy" << std::endl;
