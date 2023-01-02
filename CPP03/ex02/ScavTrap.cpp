@@ -40,7 +40,7 @@ void ScavTrap::attack(const std::string& target)
 		std::cout << "[ScavTrap] " << this->_name << " can't attack : has 0 energy" << std::endl;
 	else {
 		this->_energyPoints--;
-		std::cout << "[ScavTrap] " << this->_name << " punched " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+		std::cout << "[ScavTrap] " << this->_name << " punches " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 	}
 }
 
