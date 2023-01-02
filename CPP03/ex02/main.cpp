@@ -3,12 +3,51 @@
 
 int	main(void)
 {
-	ClapTrap claptrap("Clap");
-	ScavTrap scavtrap("Scav");
-	FragTrap fragtrap("Frag");
+	ClapTrap parent("Parent");
+	ScavTrap boy("Boy");
+	FragTrap girl("Girl");
 	std::cout << std::endl;
 
-	fragtrap.attack("Scav");
+	parent.attack("Girl");
+	girl.takeDamage(0);
+	girl.attack("Boy");
+	boy.takeDamage(30);
+	boy.attack("Girl");
+	girl.takeDamage(20);
+	std::cout << std::endl;
+
+	girl.highFivesGuys();
+	std::cout << std::endl;
+
+	girl.beRepaired(1000);
+	girl.takeDamage(1000);
+	girl.attack("Parent");
+	parent.takeDamage(30);
+	girl.attack("Boy");
+	boy.takeDamage(30);
+	girl.attack("Boy");
+	boy.takeDamage(30);
+	std::cout << std::endl;
+
+	girl.highFivesGuys();
+	boy.guardGate();
+	std::cout << std::endl;
+
+	girl.attack("Boy");
+	boy.takeDamage(30);
+	girl.attack("Boy");
+	boy.takeDamage(30);
+	std::cout << std::endl;
+
+	girl.takeDamage(1000);
+	girl.attack("Parent");
+	girl.takeDamage(20);
+	girl.beRepaired(20);
+	girl.highFivesGuys();
+	std::cout << std::endl;
+
+	/*
+		fragtrap.attack("Scav");
 	claptrap.attack("Scav");
 	scavtrap.attack("Clap");
 	std::cout << std::endl;
@@ -32,5 +71,7 @@ int	main(void)
 	fragtrap.attack("Scav");
 
 	std::cout << std::endl;
+	return (0);
+	*/
 	return (0);
 }

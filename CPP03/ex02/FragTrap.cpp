@@ -34,22 +34,22 @@ const FragTrap& FragTrap::operator=(const FragTrap& fragTrap)
 
 void FragTrap::attack(const std::string& target)
 {
-	if (_hitPoints == 0)
+	if (this->_hitPoints == 0)
 		std::cout << "[FragTrap] " << this->_name << " can't attack : has 0 hit point" << std::endl;
-	else if (_energyPoints == 0)
-		std::cout << "[FragTrap] " << this->_name << " can't attack : lack of energy" << std::endl;
+	else if (this->_energyPoints == 0)
+		std::cout << "[FragTrap] " << this->_name << " can't attack : has 0 energy" << std::endl;
 	else {
-		_energyPoints--;
+		this->_energyPoints--;
 		std::cout << "[FragTrap] " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 	}
 }
 
 void FragTrap::highFivesGuys(void)
 {
-	if (_hitPoints == 0)
+	if (this->_hitPoints == 0)
 		std::cout << "[FragTrap] " << this->_name << " can't request high fives : has 0 hit point" << std::endl;
-	else if (_energyPoints == 0)
-		std::cout << "[FragTrap] " << this->_name << " can't request high fives : lack of energy" << std::endl;
+	else if (this->_energyPoints == 0)
+		std::cout << "[FragTrap] " << this->_name << " can't request high fives : has 0 energy" << std::endl;
 	else
 		std::cout << "[FragTrap] " << this->_name << " : high five!" << std::endl;
 }
