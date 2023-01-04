@@ -25,7 +25,7 @@ Fixed & Fixed::operator=(Fixed const &assign)
 	std::cout << "\033[0;32mCopy assignment operator called.\033[0m" << std::endl;
 	if (this != &assign)
 		this->_fixed_point = assign.getRawBits();
-	return *this;
+	return (*this);
 }
 
 

@@ -94,7 +94,7 @@ Fixed & Fixed::operator=(const Fixed &assign)
 // Increment operator (prefix)
 Fixed &Fixed::operator++( void ) {
 	this->_fixed_point++;
-	return *this;
+	return (*this);
 }
 
 Fixed Fixed::operator++( int ) {
@@ -106,7 +106,7 @@ Fixed Fixed::operator++( int ) {
 // Decrement operator (prefix)
 Fixed &Fixed::operator--( void ) {
 	this->_fixed_point--;
-	return *this;
+	return (*this);
 }
 
 Fixed Fixed::operator--( int ) {
