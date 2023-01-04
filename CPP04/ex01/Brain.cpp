@@ -20,11 +20,11 @@ Brain::~Brain(void)
 	std::cout << "[ Brain ] Default destructor" << std::endl;
 }
 
-Brain &Brain::operator=(const Brain &src)
+Brain &Brain::operator=(const Brain &b)
 {
 	for (int i = 0; i < 100; i++)
 	{
-		ideas[i] = src.ideas[i];
+		ideas[i] = b.ideas[i];
 	}
 	std::cout << "Brain Copy assignment operator called" << std::endl;
 	return (*this);

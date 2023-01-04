@@ -10,10 +10,10 @@ private:
 
 public:
 	Brain(void);
-	Brain(const Brain &origin);
+	Brain(const Brain &b);
 	~Brain(void);
-	Brain &operator=(const Brain &origin);
-	
+	Brain &operator=(const Brain &b);
+
 	std::string getIdea(int idx) const;
 	void setIdea(int idx, std::string idea);
 };
