@@ -12,7 +12,7 @@ int main(void)
     // Basic Test
     std::cout << BLUE << "----------- Basic Test -----------" << RESET << std::endl;
     {
-		// const Animal *a = new Animal();
+		//const Animal *a = new Animal();
         const Animal *j = new Dog();
         std::cout << std::endl;
 
@@ -25,7 +25,6 @@ int main(void)
         delete i;
         std::cout << std::endl;
     }
-
     std::cout << BLUE << "---------- Deep Copy Test --------" << RESET 
                 << std::endl
                 << std::endl;
