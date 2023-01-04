@@ -3,14 +3,14 @@
 
 Cat::Cat(void) : Animal()
 {
-    this->_type = "Cat";
+    this->type = "Cat";
     this->_brain = new Brain();
     std::cout << "[ Cat ] Default constructer called" << std::endl;
 }
 
 Cat::Cat(const Cat &c)
 {
-    this->_type = c.getType();
+    this->type = c.getType();
 	this->_brain = new Brain();
 	*(this->_brain) = *(c.getBrain());
     std::cout << "[ Cat ] Copy constructer called" << std::endl;
@@ -26,7 +26,7 @@ Cat &Cat::operator=(const Cat &c)
 {
         if (this != &c)
     {
-        this->_type = c.getType();
+        this->type = c.getType();
         delete this->_brain;
 		this->_brain = new Brain();
 		*(this->_brain) = *(c.getBrain());

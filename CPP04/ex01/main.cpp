@@ -91,8 +91,8 @@ int main(void)
     // Subject Test
     {
         std::cout << BLUE << "\n--------- Subject Test ----------" << RESET << std::endl;
-        Animal *animal[10];
-        for (int i = 0; i < 10; i++)
+        Animal *animal[6];
+        for (int i = 0; i < 6; i++)
         {
             std::cout << GREEN << i << RESET << std::endl;
             if (i % 2)
@@ -102,11 +102,11 @@ int main(void)
             std::cout << std::endl;
         }
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 6; i++)
             animal[i]->makeSound();
 
         std::cout << std::endl;
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 6; i++)
             delete animal[i];
 
     }

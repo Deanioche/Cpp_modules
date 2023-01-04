@@ -3,14 +3,14 @@
 
 Dog::Dog(void)
 {
-    this->_type = "Dog";
+    this->type = "Dog";
     this->_brain = new Brain();
     std::cout << "[ Dog ] Default constructer called" << std::endl;
 }
 
 Dog::Dog(const Dog &d)
 {
-    this->_type = d.getType();
+    this->type = d.getType();
     this->_brain = new Brain();
     *(this->_brain) = *(d.getBrain());
     std::cout << "[ Dog ] Copy constructer called" << std::endl;
@@ -26,7 +26,7 @@ Dog &Dog::operator=(const Dog &d)
 {
     if (this != &d)
     {
-        this->_type = d.getType();
+        this->type = d.getType();
         delete this->_brain;
 		this->_brain = new Brain();
 		*(this->_brain) = *(d.getBrain());
