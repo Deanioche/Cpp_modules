@@ -11,23 +11,21 @@ int main(void)
 {
     // Basic Test
     std::cout << BLUE << "----------- Basic Test -----------" << RESET << std::endl;
-    {
-        const Animal *j = new Dog();
-        std::cout << std::endl;
+    const Animal *j = new Dog();
+    std::cout << std::endl;
 
-        const Animal *i = new Cat();
-        std::cout << std::endl;
+    const Animal *i = new Cat();
+    std::cout << std::endl;
 
-        delete j; //should not create a leak
-        std::cout << std::endl;
+    delete j; // should not create a leak
+    std::cout << std::endl;
 
-        delete i;
-        std::cout << std::endl;
-    }
+    delete i;
+    std::cout << std::endl;
 
-    std::cout << BLUE << "---------- Deep Copy Test --------" << RESET 
-                << std::endl
-                << std::endl;
+    std::cout << BLUE << "---------- Deep Copy Test --------" << RESET
+            << std::endl
+            << std::endl;
     {
         std::cout << GREEN << "--- TEST Dog ---" << RESET << std::endl;
 
@@ -89,26 +87,23 @@ int main(void)
     }
 
     // Subject Test
+    std::cout << BLUE << "\n--------- Subject Test ----------" << RESET << std::endl;
+    Animal *animal[6];
+    for (int i = 0; i < 6; i++)
     {
-        std::cout << BLUE << "\n--------- Subject Test ----------" << RESET << std::endl;
-        Animal *animal[6];
-        for (int i = 0; i < 6; i++)
-        {
-            std::cout << GREEN << i << RESET << std::endl;
-            if (i % 2)
-                animal[i] = new Dog();
-            else
-                animal[i] = new Cat();
-            std::cout << std::endl;
-        }
-
-        for (int i = 0; i < 6; i++)
-            animal[i]->makeSound();
-
+        std::cout << GREEN << i << RESET << std::endl;
+        if (i % 2)
+            animal[i] = new Dog();
+        else
+            animal[i] = new Cat();
         std::cout << std::endl;
-        for (int i = 0; i < 6; i++)
-            delete animal[i];
-
     }
+
+    for (int i = 0; i < 6; i++)
+        animal[i]->makeSound();
+
+    std::cout << std::endl;
+    for (int i = 0; i < 6; i++)
+        delete animal[i];
     return (0);
 }
