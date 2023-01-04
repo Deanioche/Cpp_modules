@@ -2,7 +2,7 @@
 
 Dog::Dog(void) : Animal()
 {
-    _type = "Dog";
+    this->type = "Dog";
     std::cout << "[ Dog ] Default constructer called" << std::endl;
 }
 
@@ -19,7 +19,7 @@ Dog::~Dog(void)
 Dog &Dog::operator=(const Dog &d)
 {
     if (this != &d)
-        _type = d.getType();
+        type = d.getType();
     std::cout << "[ Dog ] Assignment Operator called" << std::endl;
     return (*this);
 }

@@ -27,16 +27,20 @@ void test_wrong(void)
 {
     const WrongAnimal *meta = new WrongAnimal();
     const WrongAnimal *i = new WrongCat();
+    const WrongCat *j = new WrongCat();
 
     std::cout << std::endl;
 
     meta->makeSound();
     i->makeSound();
+    j->makeSound();
     std::cout << std::endl;
 
     std::cout << meta->getType() << std::endl;
     std::cout << i->getType() << std::endl;
+    std::cout << j->getType() << std::endl;
     std::cout << std::endl;
+    delete j;
     delete i;
     delete meta;
 }
@@ -51,7 +55,6 @@ int main(void)
     test_animal();
 
     std::cout << std::endl
-            << std::endl
             << std::endl;
 
     std::cout << "# WrongAnimal test" 
