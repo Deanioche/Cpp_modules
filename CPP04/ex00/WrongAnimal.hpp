@@ -11,14 +11,12 @@ protected:
 public:
 	WrongAnimal(void);
 	WrongAnimal(const WrongAnimal &src);
+	virtual ~WrongAnimal(void);
 	WrongAnimal &operator=(const WrongAnimal &wa);
-	~WrongAnimal(void);
 
 	std::string getType(void) const;
 	void setType(const std::string &type);
 	void makeSound(void) const;
 };
-
-std::ostream &operator<<(std::ostream &o, const WrongAnimal &wa);
 
 #endif

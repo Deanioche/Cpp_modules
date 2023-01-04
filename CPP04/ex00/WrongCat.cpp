@@ -1,28 +1,26 @@
-// Copyright @bigpel66
-
 #include "WrongCat.hpp"
 
 WrongCat::WrongCat(void) : WrongAnimal()
 {
     _type = "WrongCat";
-    std::cout << "[ WrongCat ] Default constructed" << std::endl;
+    std::cout << "[ WrongCat ] Default constructer called" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &wc) : WrongAnimal(wc)
 {
-    std::cout << "[ WrongCat ] Copy constructed" << std::endl;
+    std::cout << "[ WrongCat ] Copy constructer called" << std::endl;
 }
 
 WrongCat::~WrongCat(void)
 {
-    std::cout << "[ WrongCat ] Destructed " << std::endl;
+    std::cout << "[ WrongCat ] Destructer called" << std::endl;
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &wc)
 {
     if (this != &wc)
         _type = wc.getType();
-    std::cout << "[ WrongCat ] Assigned" << std::endl;
+    std::cout << "[ WrongCat ] Assignment Operator called" << std::endl;
     return (*this);
 }
 

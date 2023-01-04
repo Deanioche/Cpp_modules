@@ -39,9 +39,3 @@ void WrongAnimal::setType(const std::string &type)
 {
     this->_type = type;
 }
-
-std::ostream &operator<<(std::ostream &os, const WrongAnimal &wa)
-{
-    return os << wa.getType() << " ";
-}
-

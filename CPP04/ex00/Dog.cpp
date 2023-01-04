@@ -1,5 +1,3 @@
-// Copyright @bigpel66
-
 #include "Dog.hpp"
 
 Dog::Dog(void) : Animal()
@@ -8,9 +6,8 @@ Dog::Dog(void) : Animal()
     std::cout << "[ Dog ] Default constructer called" << std::endl;
 }
 
-Dog::Dog(const Dog &d) : Animal()
+Dog::Dog(const Dog &d) : Animal(d)
 {
-    _type = d._type;
     std::cout << "[ Dog ] Copy constructer called" << std::endl;
 }
 
@@ -31,5 +28,3 @@ void Dog::makeSound(void) const
 {
     std::cout << "[ Dog ] Bow Bow Bow!" << std::endl;
 }
-
-
