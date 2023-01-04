@@ -11,7 +11,7 @@ protected:
 public:
 	WrongAnimal(void);
 	WrongAnimal(const WrongAnimal &src);
-	virtual ~WrongAnimal(void);
+	~WrongAnimal(void);
 	WrongAnimal &operator=(const WrongAnimal &wa);
 
 	std::string getType(void) const;

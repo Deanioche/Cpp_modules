@@ -19,7 +19,7 @@ Cat::~Cat(void)
 Cat &Cat::operator=(const Cat &c)
 {
     if (this != &c)
-        this->_type = c._type;
+        this->_type = c.getType();
     std::cout << "[ Cat ] Assignment Operator called" << std::endl;
     return (*this);
 }

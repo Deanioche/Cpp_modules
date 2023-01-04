@@ -21,7 +21,7 @@ Dog &Dog::operator=(const Dog &d)
     if (this != &d)
         _type = d.getType();
     std::cout << "[ Dog ] Assignment Operator called" << std::endl;
-    return *this;
+    return (*this);
 }
 
 void Dog::makeSound(void) const
