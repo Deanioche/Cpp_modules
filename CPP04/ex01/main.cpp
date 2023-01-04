@@ -1,11 +1,9 @@
-
 #include <iostream>
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
 #define BLUE "\x1b[34;1m"
-#define YELLOW "\x1b[33;1m"
 #define GREEN "\x1b[0;32m"
 #define RESET "\x1b[0m"
 
@@ -31,29 +29,29 @@ int main(void)
                 << std::endl
                 << std::endl;
     {
-        std::cout << GREEN << "=== TEST Dog ===" << RESET << std::endl;
+        std::cout << GREEN << "--- TEST Dog ---" << RESET << std::endl;
 
         Dog D1;
-        D1.getBrain()->setIdea(0, "Walk");
-        std::cout << YELLOW << "*******" << RESET << std::endl;
+        D1.getBrain()->setIdea(0, "Hungry...");
+        std::cout << GREEN << "-" << RESET << std::endl;
 
         Dog D2(D1);
-        std::cout << YELLOW << "*******" << RESET << std::endl;
+        std::cout << GREEN << "-" << RESET << std::endl;
 
         Dog D3;
         std::cout << std::endl;
         D3 = D1;
         std::cout << std::endl;
 
-        std::cout << YELLOW << "[Before]" << RESET << std::endl;
+        std::cout << GREEN << "Before" << RESET << std::endl;
         std::cout << "D1 : " << D1.getBrain()->getIdea(0) << std::endl;
         std::cout << "D2 : " << D2.getBrain()->getIdea(0) << std::endl;
         std::cout << "D3 : " << D3.getBrain()->getIdea(0) << std::endl;
         std::cout << std::endl;
 
-        D1.getBrain()->setIdea(0, "Play");
+        D1.getBrain()->setIdea(0, "Snack!");
 
-        std::cout << YELLOW << "[After]" << RESET << std::endl;
+        std::cout << GREEN << "After" << RESET << std::endl;
         std::cout << "D1 : " << D1.getBrain()->getIdea(0) << std::endl;
         std::cout << "D2 : " << D2.getBrain()->getIdea(0) << std::endl;
         std::cout << "D3 : " << D3.getBrain()->getIdea(0) << std::endl;
@@ -61,13 +59,13 @@ int main(void)
     }
     std::cout << std::endl;
     {
-        std::cout << GREEN << "=== TEST Cat ===" << RESET << std::endl;
+        std::cout << GREEN << "--- TEST Cat ---" << RESET << std::endl;
         Cat C1;
-        C1.getBrain()->setIdea(0, "Box");
-        std::cout << YELLOW << "*******" << RESET << std::endl;
+        C1.getBrain()->setIdea(0, "Meowwwwww");
+        std::cout << GREEN << "-" << RESET << std::endl;
 
         Cat C2(C1);
-        std::cout << YELLOW << "*******" << RESET << std::endl;
+        std::cout << GREEN << "-" << RESET << std::endl;
 
         Cat C3;
         std::cout << std::endl;
@@ -75,15 +73,15 @@ int main(void)
         C3 = C1;
         std::cout << std::endl;
 
-        std::cout << YELLOW << "[Before]" << RESET << std::endl;
+        std::cout << GREEN << "Before" << RESET << std::endl;
         std::cout << "D1 : " << C1.getBrain()->getIdea(0) << std::endl;
         std::cout << "D2 : " << C2.getBrain()->getIdea(0) << std::endl;
         std::cout << "D3 : " << C3.getBrain()->getIdea(0) << std::endl;
         std::cout << std::endl;
 
-        C1.getBrain()->setIdea(0, "Can");
+        C1.getBrain()->setIdea(0, "Fish!");
 
-        std::cout << YELLOW << "[After]" << RESET << std::endl;
+        std::cout << GREEN << "After" << RESET << std::endl;
         std::cout << "C1 : " << C1.getBrain()->getIdea(0) << std::endl;
         std::cout << "C2 : " << C2.getBrain()->getIdea(0) << std::endl;
         std::cout << "C3 : " << C3.getBrain()->getIdea(0) << std::endl;
@@ -96,7 +94,7 @@ int main(void)
         Animal *animal[10];
         for (int i = 0; i < 10; i++)
         {
-            std::cout << YELLOW << i << RESET << std::endl;
+            std::cout << GREEN << i << RESET << std::endl;
             if (i % 2)
                 animal[i] = new Dog();
             else
