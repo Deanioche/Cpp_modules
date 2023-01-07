@@ -50,7 +50,7 @@ int Bureaucrat::getGrade(void) const
 	return (_grade);
 }
 
-std::ostream &	operator<<(std::ostream &c, const Bureaucrat &b)
+std::ostream & operator<<(std::ostream &c, const Bureaucrat &b)
 {
 	c << "[ Bureaucrat name : " << b.getName() << ", grade : " << b.getGrade() << " ]";
 	return (c);

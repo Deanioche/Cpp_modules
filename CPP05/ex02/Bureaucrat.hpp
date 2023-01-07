@@ -1,7 +1,10 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+#include "AForm.hpp"
 #include <iostream>
+#include <exception>
+#include <string>
 
 class AForm;
 
@@ -10,6 +13,7 @@ class Bureaucrat
 	private:
 		const std::string _name;
 		int _grade;
+
 	public:
 		Bureaucrat(void);
 		Bureaucrat(std::string name, int grade);

@@ -4,8 +4,8 @@ CXX			= c++
 CXXFLAGS	= -std=c++98 -Wall -Wextra -Werror
 
 SRCS    	= \
-			main.cpp        			\
-			Bureaucrat.cpp  			\
+			main.cpp        \
+			Bureaucrat.cpp  \
 			Form.cpp
 
 

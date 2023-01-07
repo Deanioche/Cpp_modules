@@ -30,7 +30,9 @@ Intern &Intern::operator= (const Intern &origin)
 // others
 AForm *Intern::makeForm(std::string name, std::string target) const
 {
-	int idx = (name == "shrubbery creation") * 1 + (name == "robotomy request") * 2 + (name == "presidential pardon") * 3;
+	int idx = (name == "shrubbery creation") * 1 \
+			+ (name == "robotomy request") * 2	 \
+			+ (name == "presidential pardon") * 3;
 	switch (idx)
 	{
 		case 1:

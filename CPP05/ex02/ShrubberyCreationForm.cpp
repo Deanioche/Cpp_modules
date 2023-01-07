@@ -1,7 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-// ANCHOR constructor, canonical form
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("shrubbery creation", S_SIGN_GRADE, S_EXEC_GRADE)
 {
 	std::cout << "[ ShrubberyCreationForm Default Constructor called ]" << std::endl;
@@ -41,13 +40,11 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-// ANCHOR accessor
 const std::string ShrubberyCreationForm::getTarget(void) const
 {
 	return (_target);
 }
 
-// ANCHOR others
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (isSigned() == false)
