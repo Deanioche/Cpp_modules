@@ -13,7 +13,7 @@ int main(void)
 		try
 		{
 			for(int i = 149; i <= 151; i++)
-				Form vacation("Kakao", i, 10);	// sign grade : 149, 150, 151
+				Form fruitCase("fruitCase", i, 10);	// sign grade : 149, 150, 151
 		}
 		catch (std::exception & e)
 		{
@@ -23,7 +23,7 @@ int main(void)
 		try
 		{
 			for(int i = 2; i >= 0; i--)
-				Form kakao_friends("Kakao Friends", 10, i);	// exec grade 2, 1, 0
+				Form vegiCase("vegiCase", 10, i);	// exec grade 2, 1, 0
 		}
 		catch (std::exception & e)
 		{
@@ -33,14 +33,14 @@ int main(void)
 
 	{
 		std::cout << BLUE << "\n------------ Form sign test -----------" << RESET << std::endl;
-		Bureaucrat ryan("Ryan", 43);
-		Form vacation ("Kakao", 40, 40);
+		Bureaucrat apple("apple", 43);
+		Form fruitCase ("fruitCase", 40, 40);
 		std::cout << "\n";
 		for(int i = 0; i < 3; i++)
 		{
-			ryan.increaseGrade(); // sign grade : 42, 41, 40
-			ryan.signForm(vacation);
-			std::cout << vacation << "\n\n";
+			apple.increaseGrade(); // sign grade : 42, 41, 40
+			apple.signForm(fruitCase);
+			std::cout << fruitCase << "\n\n";
 		}
 	}
 	return (0);

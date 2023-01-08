@@ -3,7 +3,6 @@
 #define CYAN "\x1b[0;36m" 
 #define RESET "\x1b[0m"
 
-// constructor, canonical form
 Intern::Intern(void)
 {
 	std::cout << "[ Intern Default Constructor called ]" << std::endl;

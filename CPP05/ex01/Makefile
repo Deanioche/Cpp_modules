@@ -8,7 +8,6 @@ SRCS    	= \
 			Bureaucrat.cpp  \
 			Form.cpp
 
-
 OBJS_DIR	= objs
 OBJS		= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 

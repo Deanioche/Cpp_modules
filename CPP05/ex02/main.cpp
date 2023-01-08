@@ -3,7 +3,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 #define RED "\x1b[0;31m"
-#define UCYAN "\x1b[4;36m" 
+#define BLUE "\x1b[34;1m"
 #define RESET "\x1b[0m"
 
 int main(void)
@@ -16,41 +16,41 @@ int main(void)
 
 	std::cout << "\n";
 
-	std::cout << UCYAN << "\n---------- ShrubberyCreationForm test ----------" << RESET << std::endl;
+	std::cout << BLUE << "\n---------- ShrubberyCreationForm test ----------" << RESET << std::endl;
 	ShrubberyCreationForm s("green");
-	b3.executeForm(s);	// cannot execute (not signed)
-	b5.signForm(s);	// cannot sign (low grade)
-	b4.signForm(s);	// sign
+	b3.executeForm(s); // cannot execute (not signed)
+	b5.signForm(s);	   // cannot sign (low grade)
+	b4.signForm(s);	   // sign
 	std::cout << s << std::endl;
-	b1.executeForm(s);	// execute
-	b2.executeForm(s);	// execute
-	b3.executeForm(s);	// execute
-	b4.executeForm(s);	// cannot execute
-	b5.executeForm(s);	// cannot execute
+	b1.executeForm(s); // execute
+	b2.executeForm(s); // execute
+	b3.executeForm(s); // execute
+	b4.executeForm(s); // cannot execute
+	b5.executeForm(s); // cannot execute
 
-	std::cout << UCYAN << "\n----------- RobotomyRequestForm test -----------" << RESET << std::endl;
+	std::cout << BLUE << "\n----------- RobotomyRequestForm test -----------" << RESET << std::endl;
 	RobotomyRequestForm r("robo");
-	b2.executeForm(r);	// cannot execute (not signed)
-	b4.signForm(r);	// cannot sign (low grade)
-	b3.signForm(r);	// sign
+	b2.executeForm(r); // cannot execute (not signed)
+	b4.signForm(r);	   // cannot sign (low grade)
+	b3.signForm(r);	   // sign
 	std::cout << r << std::endl;
-	b1.executeForm(r);	// execute
-	b2.executeForm(r);	// execute
-	b3.executeForm(r);	// cannot execute
-	b4.executeForm(r);	// cannot execute
-	b5.executeForm(r);	// cannot execute
+	b1.executeForm(r); // execute
+	b2.executeForm(r); // execute
+	b3.executeForm(r); // cannot execute
+	b4.executeForm(r); // cannot execute
+	b5.executeForm(r); // cannot execute
 
-	std::cout << UCYAN << "\n--------- PresidentialPardonForm test ----------" << RESET << std::endl;
+	std::cout << BLUE << "\n--------- PresidentialPardonForm test ----------" << RESET << std::endl;
 	PresidentialPardonForm p("bye");
-	b1.executeForm(p);	// cannot execute (not signed)
-	b3.signForm(p);	// cannot sign (low grade)
-	b2.signForm(p);	// sign
+	b1.executeForm(p); // cannot execute (not signed)
+	b3.signForm(p);	   // cannot sign (low grade)
+	b2.signForm(p);	   // sign
 	std::cout << p << std::endl;
-	b1.executeForm(p);	// execute
-	b2.executeForm(p);	// cannot execute
-	b3.executeForm(p);	// cannot execute
-	b4.executeForm(p);	// cannot execute
-	b5.executeForm(p);	// cannot execute
+	b1.executeForm(p); // execute
+	b2.executeForm(p); // cannot execute
+	b3.executeForm(p); // cannot execute
+	b4.executeForm(p); // cannot execute
+	b5.executeForm(p); // cannot execute
 
 	return (0);
 }

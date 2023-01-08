@@ -10,10 +10,8 @@ int main(void)
 		std::cout << BLUE << "---------- Bureaucrat constructor test ----------" << RESET << std::endl;
 		try
 		{
-			for (int i = 149; i <= 151; i++)
-			{
-				Bureaucrat carrot("carrot", i); // 149, 150, 151
-			}
+			for (int i = 149; i <= 152; i++)
+				Bureaucrat carrot("carrot", i); // 149, 150, 151, 152
 		}
 		catch (std::exception &e)
 		{

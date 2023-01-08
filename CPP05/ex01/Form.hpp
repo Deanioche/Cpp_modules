@@ -13,13 +13,12 @@ private:
 	const int _required_sign_grade;
 	const int _required_exec_grade;
 
-	Form(const Form &origin);
-	Form &operator=(const Form &origin);
-
 public:
 	Form(void);
 	Form(const std::string name, const int required_sign_grade, const int required_exec_grade);
+	Form(const Form &origin);
 	~Form(void);
+	Form &operator=(const Form &origin);
 
 	std::string getName(void) const;
 	bool isSigned(void) const;

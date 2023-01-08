@@ -2,25 +2,24 @@
 #include <cstdlib>
 #include <ctime>
 
-// ANCHOR constructor, canonical form
 RobotomyRequestForm::RobotomyRequestForm(void) : AForm("robotomy request", R_SIGN_GRADE, R_EXEC_GRADE)
 {
 	std::cout << "[ RobotomyRequestForm Default Constructor called ]" << std::endl;
-	_target = "";
+	this->_target = "";
 	std::cout << "RobotomyRequestForm Form is created " << *this << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("robotomy request", R_SIGN_GRADE, R_EXEC_GRADE)
 {
 	std::cout << "[ RobotomyRequestForm Constructor called ]" << std::endl;
-	_target = target;
+	this->_target = target;
 	std::cout << "RobotomyRequestForm Form is created " << *this << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &origin) : AForm("robotomy request", origin.getRequiredSignGrade(), origin.getRequiredExecGrade())
 {
 	std::cout << "[ RobotomyRequestForm Copy Constructor called ]" << std::endl;
-	_target = origin.getTarget();
+	this->_target = origin.getTarget();
 	setSigned(origin.isSigned());
 	std::cout << "RobotomyRequestForm is copied " << *this << std::endl;
 }
@@ -35,20 +34,18 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 	std::cout << "[ RobotomyRequestForm Copy Assign operator called ]" << std::endl;
 	if (this != &origin)
 	{
-		_target = origin.getTarget();
+		this->_target = origin.getTarget();
 		setSigned(origin.isSigned());
 	}
 	std::cout << "RobotomyRequestForm is copied (only Target and sign) " << *this << std::endl;
 	return (*this);
 }
 
-// ANCHOR accessor
 const std::string RobotomyRequestForm::getTarget(void) const
 {
-	return (_target);
+	return (this->_target);
 }
 
-// ANCHOR others
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	static int first_execute;
@@ -66,9 +63,9 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	{
 		std::cout << "drrrr... drrrrrrr..." << std::endl;
 		if (rand() % 2 == 0)
-			std::cout << _target << " has been robotomized successfully" << std::endl;
+			std::cout << this->_target << " has been robotomized successfully" << std::endl;
 		else
-			std::cout << "Fail to robotomize " << _target << std::endl;
+			std::cout << "Fail to robotomize " << this->_target << std::endl;
 	}
 }
 

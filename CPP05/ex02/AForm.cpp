@@ -4,84 +4,81 @@
 #define GREEN "\x1b[0;32m"
 #define RESET "\x1b[0m"
 
-
-AForm::AForm(void) :  _name("Default"), _required_sign_grade(150), _required_exec_grade(150)
+AForm::AForm(void) : _name("Default"), _required_sign_grade(150), _required_exec_grade(150)
 {
 	std::cout << "[ Form Default Constructor called ]" << std::endl;
-	_signed = false;
+	this->_signed = false;
 	std::cout << "Default Form is created " << *this << std::endl;
 }
 
-AForm::AForm(const std::string name, const int required_sign_grade, const int required_exec_grade) :  _name(name), _required_sign_grade(required_sign_grade), _required_exec_grade(required_exec_grade)
+AForm::AForm(const std::string name, const int required_sign_grade, const int required_exec_grade) : _name(name), _required_sign_grade(required_sign_grade), _required_exec_grade(required_exec_grade)
 {
 	std::cout << "[ Form Constructor called ]" << std::endl;
 	if (required_sign_grade < 1 || required_exec_grade < 1)
 	{
 		std::cout << RED << "Error : " << RESET;
-		throw (AForm::GradeTooHighException());
+		throw(AForm::GradeTooHighException());
 	}
 	else if (required_sign_grade > 150 || required_exec_grade > 150)
 	{
 		std::cout << RED << "Error : " << RESET;
-		throw (AForm::GradeTooLowException());
+		throw(AForm::GradeTooLowException());
 	}
-	_signed = false;
+	this->_signed = false;
 	std::cout << "Form is created " << *this << std::endl;
 }
 
 AForm::AForm(const AForm &origin) : _name(origin.getName()), _required_sign_grade(origin.getRequiredSignGrade()), _required_exec_grade(origin.getRequiredExecGrade())
 {
 	std::cout << "[ Form Copy Constructor called ]" << std::endl;
-	_signed = origin.isSigned();
+	this->_signed = origin.isSigned();
 	std::cout << "Form is copied " << *this << std::endl;
 }
 
 AForm::~AForm(void)
 {
-	std::cout << "Form " << _name << " is destroyed" << std::endl;
+	std::cout << "Form " << this->_name << " is destroyed" << std::endl;
 }
 
-AForm &AForm::operator= (const AForm &origin)
+AForm &AForm::operator=(const AForm &origin)
 {
 	std::cout << "[ Form Copy Assign operator called ]" << std::endl;
 	if (this != &origin)
-		_signed = isSigned();
+		this->_signed = isSigned();
 	std::cout << "Form is copied (only sign) " << *this << std::endl;
 	return (*this);
 }
 
-
 std::string AForm::getName(void) const
 {
-	return (_name);
+	return (this->_name);
 }
 
 bool AForm::isSigned(void) const
 {
-	return (_signed);
+	return (this->_signed);
 }
 
 void AForm::setSigned(bool parm)
 {
-	_signed = parm;
+	this->_signed = parm;
 }
 
 int AForm::getRequiredSignGrade(void) const
 {
-	return (_required_sign_grade);
+	return (this->_required_sign_grade);
 }
 
 int AForm::getRequiredExecGrade(void) const
 {
-	return (_required_exec_grade);
+	return (this->_required_exec_grade);
 }
-
 
 void AForm::beSigned(const Bureaucrat &b)
 {
-	if (b.getGrade() <= _required_sign_grade)
+	if (b.getGrade() <= this->_required_sign_grade)
 	{
-		_signed = true;
+		this->_signed = true;
 		std::cout << GREEN << "Success : " << RESET;
 	}
 	else
@@ -91,7 +88,7 @@ void AForm::beSigned(const Bureaucrat &b)
 	}
 }
 
-std::ostream &	operator<<(std::ostream &c, const AForm &f)
+std::ostream &operator<<(std::ostream &c, const AForm &f)
 {
 	c << "[ Form name : " << f.getName() << ", is sigined : ";
 	if (f.isSigned() == true)
@@ -101,8 +98,6 @@ std::ostream &	operator<<(std::ostream &c, const AForm &f)
 	c << ", required grade : sign(" << f.getRequiredSignGrade() << ") / exec(" << f.getRequiredExecGrade() << ") ]";
 	return (c);
 }
-
-
 
 const char *AForm::GradeTooHighException::what(void) const throw()
 {
