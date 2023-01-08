@@ -1,6 +1,6 @@
 #include "Intern.hpp"
 #define RED "\x1b[0;31m"
-#define CYAN "\x1b[0;36m" 
+#define BLUE "\x1b[34;1m"
 #define RESET "\x1b[0m"
 
 Intern::Intern(void)
@@ -36,17 +36,17 @@ AForm *Intern::makeForm(std::string name, std::string target) const
 	{
 		case 1:
 		{
-			std::cout << CYAN << "Intern created " << name << " form" << RESET << std::endl;
+			std::cout << BLUE << "Intern created " << name << " form" << RESET << std::endl;
 			return new ShrubberyCreationForm(target);
 		}
 		case 2:
 		{
-			std::cout << CYAN << "Intern created " << name << " form" << RESET << std::endl;
+			std::cout << BLUE << "Intern created " << name << " form" << RESET << std::endl;
 			return new RobotomyRequestForm(target);
 		}
 		case 3:
 		{
-			std::cout << CYAN << "Intern created " << name << " form" << RESET << std::endl;
+			std::cout << BLUE << "Intern created " << name << " form" << RESET << std::endl;
 			return new PresidentialPardonForm(target);
 		}
 		default:

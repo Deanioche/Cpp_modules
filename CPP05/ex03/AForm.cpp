@@ -90,7 +90,7 @@ void AForm::beSigned(const Bureaucrat &b)
 
 std::ostream &operator<<(std::ostream &c, const AForm &f)
 {
-	c << "[ Form name : " << f.getName() << ", is sigined : ";
+	c << "[ Form name : " << f.getName() << ", is signed : ";
 	if (f.isSigned() == true)
 		c << "true";
 	else
