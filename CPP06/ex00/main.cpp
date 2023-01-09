@@ -4,7 +4,7 @@ int main(int ac, char *av[])
 {
 	if (ac != 2)
 	{
-		std::cerr << "argument number error." << std::endl;
+		std::cerr << "Error : ./ex00 (something)" << std::endl;
 		return 0;
 	}
 

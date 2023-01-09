@@ -3,17 +3,22 @@
 
 int main()
 {
-	Data labour;
+	Data useless_data;
 
-	labour.name = "labour";
-	labour.height = 190;
-	labour.job = "student";
+	useless_data.title = "How to make a cake";
+	useless_data.content = "Cake is recommended to order in a cake shop.\nDo not try to make your self.";
+	useless_data.price = 5000;
 
-	uintptr_t up = serialize(&labour);
+	uintptr_t up = serialize(&useless_data);
 	std::cout << "serialized: " << up << std::endl;
 
 	Data *data = deserialize(up);
-	std::cout << data->name << ", " << data->height << ", " << data->job << std::endl;
+	std::cout << "[ " << data->title << " - $"
+			<< data->price << " ]\n"
+			<< data->content << std::endl;
+
+	std::cout << "useless data : " << &useless_data << std::endl;
+	std::cout << "useless data : " << data << std::endl;
 
 	return 0;
 }

@@ -5,9 +5,9 @@
 
 typedef struct
 {
-	std::string name;
-	std::string job;
-	int height;
+	std::string title;
+	std::string content;
+	int price;
 } Data;
 
 uintptr_t serialize(Data *ptr);
