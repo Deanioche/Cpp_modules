@@ -2,23 +2,24 @@
 
 Conversion &Conversion::operator=(Conversion const &src)
 {
-	_value = src._value;
-	return (*this);
+	this->_value = src._value;
+	return *this;
 }
 
 char Conversion::toChar() const
-{
+{          
 	int n;
 
-	if (_value.length() == 1 && (_value[0] < '0' || _value[0] > '9'))
+	if (this->_value.length() == 1 && (this->_value[0] < '0' || this->_value[0] > '9'))
 	{
-		return _value[0];
+		return this->_value[0];
 	}
 
-	const char *str = _value.c_str();
+	const char *str = this->_value.c_str();
 	char *stopstr = NULL;
 
 	n = static_cast<int>(strtod(str, &stopstr));
+
 	if (str != stopstr && !isinf(n) && !isnan(n) && n >= 0 && n <= 255)
 	{
 		if (!isprint(n))
@@ -33,13 +34,13 @@ int Conversion::toInt() const
 {
 	double n;
 
-	if (_value.length() == 1 && (_value[0] < '0' || _value[0] > '9'))
+	if (this->_value.length() == 1 && (this->_value[0] < '0' || this->_value[0] > '9'))
 	{
-		return _value[0];
+		return this->_value[0];
 	}
-	if (_value.length() == 1 && _value[0] == '0')
+	if (this->_value.length() == 1 && this->_value[0] == '0')
 		return 0;
-	const char *str = _value.c_str();
+	const char *str = this->_value.c_str();
 	char *stopstr = NULL;
 
 	n = strtod(str, &stopstr);
@@ -53,13 +54,13 @@ float Conversion::toFloat() const
 {
 	double n;
 
-	if (_value.length() == 1 && (_value[0] < '0' || _value[0] > '9'))
+	if (this->_value.length() == 1 && (this->_value[0] < '0' || this->_value[0] > '9'))
 	{
-		return _value[0];
+		return this->_value[0];
 	}
-	if (_value.length() == 1 && _value[0] == '0')
+	if (this->_value.length() == 1 && this->_value[0] == '0')
 		return 0;
-	const char *str = _value.c_str();
+	const char *str = this->_value.c_str();
 	char *stopstr = NULL;
 
 	n = strtod(str, &stopstr);
@@ -73,11 +74,11 @@ double Conversion::toDouble() const
 {
 	double n;
 
-	if (_value.length() == 1 && (_value[0] < '0' || _value[0] > '9'))
+	if (this->_value.length() == 1 && (this->_value[0] < '0' || this->_value[0] > '9'))
 	{
-		return _value[0];
+		return this->_value[0];
 	}
-	if (_value.length() == 1 && _value[0] == '0')
+	if (this->_value.length() == 1 && this->_value[0] == '0')
 		return 0;
 	const char *str = _value.c_str();
 	char *stopstr = NULL;
@@ -116,9 +117,12 @@ std::ostream& operator<<(std::ostream &out, const Conversion &ref)
 	try {
 		float n = ref.toFloat();
 		out << n;
-		if (n - (int)n == 0)
+		if (n - static_cast<int>(n) == 0)
 			out << ".0";
 		out << "f" << std::endl;
+
+		// std::cout << "# n : " << n << std::endl;
+		// std::cout << "# static_cast<int>(n) : " << static_cast<int>(n) << std::endl;
 	}
 	catch (const std::exception &e)
 	{
@@ -129,7 +133,7 @@ std::ostream& operator<<(std::ostream &out, const Conversion &ref)
 	try {
 		double n = ref.toDouble();
 		out << n;
-		if (n - (int)n == 0)
+		if (n - static_cast<int>(n) == 0)
 			out << ".0";
 		out << std::endl;
 	}
