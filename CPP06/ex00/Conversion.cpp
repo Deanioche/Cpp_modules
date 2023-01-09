@@ -114,15 +114,13 @@ std::ostream& operator<<(std::ostream &out, const Conversion &ref)
 	}
 
 	out << "float: ";
-	try {
+	try 
+	{
 		float n = ref.toFloat();
 		out << n;
 		if (n - static_cast<int>(n) == 0)
 			out << ".0";
 		out << "f" << std::endl;
-
-		// std::cout << "# n : " << n << std::endl;
-		// std::cout << "# static_cast<int>(n) : " << static_cast<int>(n) << std::endl;
 	}
 	catch (const std::exception &e)
 	{
@@ -130,7 +128,8 @@ std::ostream& operator<<(std::ostream &out, const Conversion &ref)
 	}
 
 	out << "double: ";
-	try {
+	try 
+	{
 		double n = ref.toDouble();
 		out << n;
 		if (n - static_cast<int>(n) == 0)
