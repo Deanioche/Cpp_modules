@@ -22,6 +22,11 @@ int main()
 
 	std::cout << "&useless_data : " << &useless_data << std::endl;
 	std::cout << "data : " << data << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "(&useless_data)->content : " << (&useless_data)->content << std::endl;
+	std::cout << "data->content : " << data->content << std::endl;
+	std::cout << std::endl;
 
 	return 0;
 }
