@@ -4,7 +4,7 @@
 class Base
 {
 public:
-	virtual ~Base() {};
+	virtual ~Base(void) {};
 };
 
 #endif
