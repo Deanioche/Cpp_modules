@@ -1,5 +1,5 @@
 ### Cpp_modules
-Subjects of 42 Seoul.
+Subject of 42 Seoul.
 
 | Subject           | Info                                              | Status     | Pass      |
 |            :-:    |            :-:                                    |    :-:     |    :-:    | 
