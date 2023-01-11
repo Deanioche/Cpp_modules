@@ -56,9 +56,8 @@ public:
 		return this->_size;
 	}
 
-	T &operator[](unsigned int idx) const
+	const T &operator[](unsigned int idx) const
 	{
-		std::cout << "콩스트" << "\n";
 		if (static_cast<int>(idx) < 0 || idx >= this->_size)
 		{
 			throw IndexOutOfBoundException();
@@ -68,7 +67,6 @@ public:
 
 	T &operator[](unsigned int idx)
 	{
-		std::cout << "안콩" << "\n";
 		if (static_cast<int>(idx) < 0 || idx >= this->_size)
 		{
 			throw IndexOutOfBoundException();
