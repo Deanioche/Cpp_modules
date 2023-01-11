@@ -13,7 +13,7 @@ void iter(T *arr, size_t length, void (*f)(T const &))
 }
 
 template <typename T>
-void display(T const &data)
+void display(T &data)
 {
 	std::cout << data << std::endl;
 }
