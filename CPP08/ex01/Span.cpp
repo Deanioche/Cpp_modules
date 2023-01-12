@@ -2,31 +2,30 @@
 
 Span &Span::operator=(const Span &src)
 {
-	size_ = src.size_;
-	v = src.v;
+	this->_size = src._size;
+	this->_v = src._v;
 	return *this;
 }
 
 void Span::addNumber(int n)
 {
-	if (v.size() >= size_)
+	if (this->_v.size() >= this->_size)
 		throw OutOfSizeException();
-	v.push_back(n);
+	this->_v.push_back(n);
 }
 
-long Span::shortestSpan()
+long Span::shortestSpan(void) const
 {
 	long result;
 
-	if (v.size() < 2)
+	if (this->_v.size() < 2)
 		throw NotEnoughSizeException();
 
-	std::vector<int> copy(v);
+	std::vector<int> copy(this->_v);
 	std::sort(copy.begin(), copy.end());
 
 	std::vector<int>::iterator prev_it = copy.begin();
 	std::vector<int>::iterator curr_it = prev_it + 1;
-
 	std::cout << "sorted: ";
 	for (int i = 0; (unsigned long)i < copy.size(); i++)
 	{
@@ -47,14 +46,14 @@ long Span::shortestSpan()
 	return result;
 }
 
-long Span::longestSpan()
+long Span::longestSpan(void) const
 {
 	long result;
 
-	if (v.size() < 2)
+	if (this->_v.size() < 2)
 		throw NotEnoughSizeException();
 
-	std::vector<int> copy(v);
+	std::vector<int> copy(this->_v);
 	std::sort(copy.begin(), copy.end());
 	
 	result = static_cast<long>(copy.back() - copy.front());
@@ -67,7 +66,7 @@ void Span::fillSpan()
 	srand(time(NULL));
 
 	std::cout << "random nums: ";
-	for (unsigned int i = 0; i < size_; i++)
+	for (unsigned int i = 0; i < this->_size; i++)
 	{
 		int num = rand() % 100;
 		std::cout << num << " ";

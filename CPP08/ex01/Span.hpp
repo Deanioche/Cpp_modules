@@ -7,21 +7,21 @@
 class Span
 {
 private:
-	unsigned int size_;
-	std::vector<int> v;
+	unsigned int _size;
+	std::vector<int> _v;
 
-	Span();
+	Span(void);
 
 public:
-	Span(unsigned int N) : size_(N) {};
-	Span(const Span &src) : size_(src.size_), v(src.v) {};
+	Span(unsigned int N) : _size(N) {};
+	Span(const Span &src) : _size(src._size), _v(src._v) {};
 	Span &operator=(const Span &src);
-	~Span(){};
+	~Span(void){};
 
 	void addNumber(int n);
-	long shortestSpan();
-	long longestSpan();
-	void fillSpan();
+	long shortestSpan(void) const;
+	long longestSpan(void) const;
+	void fillSpan(void);
 
 	class OutOfSizeException : public std::exception
 	{
