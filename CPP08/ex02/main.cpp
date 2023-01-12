@@ -70,7 +70,6 @@ int const_test(void)
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<char> s(mstack);
 	return 0;
 }
 
@@ -93,7 +92,6 @@ int const_reverse_test(void)
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<double> s(mstack);
 	return 0;
 }
 
