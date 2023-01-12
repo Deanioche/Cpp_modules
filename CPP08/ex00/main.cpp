@@ -22,7 +22,7 @@ int main()
 		std::vector<int>::iterator it1 = easyfind(v, 4);
 		std::cout << *it1 << std::endl;
 
-		std::vector<int>::iterator it2 = easyfind(v, 7);
+		std::vector<int>::iterator it2 = easyfind(v, 77);
 		std::cout << *it2 << std::endl;
 	}
 	catch (std::exception &e)

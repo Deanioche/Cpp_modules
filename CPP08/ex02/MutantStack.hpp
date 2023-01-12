@@ -8,14 +8,14 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 public:
-	MutantStack(void) {};
-	MutantStack(const MutantStack &src) : std::stack<T>(src) {};
+	MutantStack(void){};
+	MutantStack(const MutantStack &src) : std::stack<T>(src){};
 	MutantStack<T> &operator=(const MutantStack &src)
 	{
 		MutantStack<T>::stack::operator=(src);
 		return *this;
 	}
-	~MutantStack(void) {};
+	~MutantStack(void){};
 
 	typedef typename MutantStack<T>::stack::container_type::iterator iterator;
 	iterator begin(void)
@@ -26,16 +26,6 @@ public:
 	{
 		return this->c.end();
 	}
-	
-	typedef typename MutantStack<T>::stack::container_type::const_iterator const_iterator;
-	const_iterator cbegin(void)
-	{
-		return this->c.cbegin();
-	}
-	const_iterator cend(void)
-	{
-		return this->c.cend();
-	}
 
 	typedef typename MutantStack<T>::stack::container_type::reverse_iterator reverse_iterator;
 	reverse_iterator rbegin(void)
@@ -45,6 +35,16 @@ public:
 	reverse_iterator rend(void)
 	{
 		return this->c.rend();
+	}
+
+	typedef typename MutantStack<T>::stack::container_type::const_iterator const_iterator;
+	const_iterator cbegin(void)
+	{
+		return this->c.cbegin();
+	}
+	const_iterator cend(void)
+	{
+		return this->c.cend();
 	}
 
 	typedef typename MutantStack<T>::stack::container_type::const_reverse_iterator const_reverse_iterator;

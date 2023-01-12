@@ -53,10 +53,7 @@ long Span::longestSpan(void) const
 	if (this->_v.size() < 2)
 		throw NotEnoughSizeException();
 
-	std::vector<int> copy(this->_v);
-	std::sort(copy.begin(), copy.end());
-	
-	result = static_cast<long>(copy.back() - copy.front());
+	result = static_cast<long>(*std::max_element(this->_v.begin(), this->_v.end())) - *std::min_element(this->_v.begin(), this->_v.end());
 
 	return result;
 }
