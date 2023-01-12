@@ -53,7 +53,9 @@ long Span::longestSpan(void) const
 	if (this->_v.size() < 2)
 		throw NotEnoughSizeException();
 
-	result = static_cast<long>(*std::max_element(this->_v.begin(), this->_v.end())) - *std::min_element(this->_v.begin(), this->_v.end());
+	int max = *std::max_element(this->_v.begin(), this->_v.end());
+	int min = *std::min_element(this->_v.begin(), this->_v.end());
+	result = static_cast<long>(max) - min;
 
 	return result;
 }
@@ -61,12 +63,15 @@ long Span::longestSpan(void) const
 void Span::fillSpan(void)
 {
 	srand(time(NULL));
-	if (this->_v.size() < this->_size)
+	if (this->_v.size() >= this->_size)
 	{
-		_v.resize(this->_size);
-		for (std::vector<int>::iterator it = this->_v.begin(); it != this->_v.end(); it++)
-		{
-			*it = rand() % 100;
-		}
+		std::cout << "Already filled" << std::endl;
+		return ;
+	}
+
+	_v.resize(this->_size);
+	for (std::vector<int>::iterator it = this->_v.begin(); it != this->_v.end(); it++)
+	{
+		*it = rand() % 100;
 	}
 }
