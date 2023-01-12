@@ -58,16 +58,15 @@ long Span::longestSpan(void) const
 	return result;
 }
 
-void Span::fillSpan()
+void Span::fillSpan(void)
 {
 	srand(time(NULL));
-
-	std::cout << "random nums: ";
-	for (unsigned int i = 0; i < this->_size; i++)
+	if (this->_v.size() < this->_size)
 	{
-		int num = rand() % 100;
-		std::cout << num << " ";
-		addNumber(num);
+		_v.resize(this->_size);
+		for (std::vector<int>::iterator it = this->_v.begin(); it != this->_v.end(); it++)
+		{
+			*it = rand() % 100;
+		}
 	}
-	std::cout << std::endl;
 }
